@@ -11,10 +11,10 @@ model_load = pickle.load(open('my_model_LGBM_hepatitisC.sav', 'rb'))
 
 def prediction_model(input_data):
     
-    input_data_as_array = np.asarray(input_data)
-    input_data_reshaped = input_data_as_array.reshape(1,-1)
+#     input_data_as_array = np.asarray(input_data)
+#     input_data_reshaped = input_data_as_array.reshape(1,-1)
 
-    prediction = model_load.predict(input_data_reshaped)
+    prediction = model_load.predict(input_data)
 
     if prediction[0] == 0:
         return "The patient is the Blood Donor"
@@ -49,10 +49,28 @@ def main():
     GGT = st.text_input('GGT(Gamma-Glutamyl-Transferase) value')
     PROT = st.text_input('PROT(Total protein test) value')
     
-    if Sex == 'm':
-        Sex = '1'
-    elif Sex == 'f':
-        Sex == '0'
+    data = {
+    'Age': [Age],
+    'Sex': [Sex],
+    'ALB': [ALB],
+    'ALP': [ALP],
+    'ALT': [ALT],
+    'AST': [AST],
+    'BIL': [BIL],
+    'CHE': [CHE],
+    'CHOL': [CHOL],
+    'CREA': [CREA],
+    'GGT': [GGT],
+    'PROT': [PROT]
+     }
+
+    df_ = pd.DataFrame(data)
+    df_.loc[df_["Sex"] == "m", "Sex"] = "1"
+    df_.loc[df_["Sex"] == "f", "Sex"] = "0"
+    
+    df_ = df_.apply(pd.to_numeric, errors='coerce')
+    
+ 
     
 
     # variable of prediction
@@ -60,7 +78,7 @@ def main():
     result = ''
 
     if st.button('Hepatitis C test result'):
-        result = prediction_model([float(Age),str(Sex),float(ALB),float(ALP),float(ALT),float(AST),float(BIL),float(CHE),float(CHOL),float(CREA),float(GGT),float(PROT)])
+        result = prediction_model(df_)
 
     # Display the result
     st.success(result)
