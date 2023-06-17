@@ -49,6 +49,11 @@ def main():
     GGT = st.text_input('GGT(Gamma-Glutamyl-Transferase) value')
     PROT = st.text_input('PROT(Total protein test) value')
     
+    if Sex == 'm':
+        Sex = '1'
+    elif Sex == 'f':
+        Sex == '0'
+    
 
     # variable of prediction
 
