@@ -6,7 +6,13 @@ import pandas as pd
 
 
 # Load our mnodel
-model_load = pickle.load(open('my_model_LGBM_hepatitisC.sav', 'rb'))
+model_load = pickle.load(open('my_model_XGBoost_hepatitisC_new.sav', 'rb'))
+X_train = pd.read_csv('X_train.csv')
+
+scaler = StandardScaler()
+# Identify numeric columns
+numeric_cols = X_train.select_dtypes(include=np.number).columns
+X_train[numeric_cols] = scaler.fit_transform(X_train[numeric_cols])
 
 # Define a prediction function
 
@@ -68,9 +74,13 @@ def main():
     df_ = pd.DataFrame(data)
     df_.loc[df_["Sex"] == "m", "Sex"] = "1"
     df_.loc[df_["Sex"] == "f", "Sex"] = "0"
+
+    col_names = df_.columns
     
     df_ = df_.apply(pd.to_numeric, errors='coerce')
-    
+
+    df_[numeric_cols] = scaler.transform(df_[numeric_cols])
+    df_s = pd.DataFrame(df_, columns=col_names)
  
     
 
