@@ -6,3 +6,4 @@ The project has been done in collaboration with [Pauline Ornela Megne](https://g
 
 The app can be tested using this [link](https://nguefackuriel-hepathitis-c-pr-hepatitis-c-prediction-app-xdxi9n.streamlit.app/)
 
+We are currently working on the paper which will be released soon.
