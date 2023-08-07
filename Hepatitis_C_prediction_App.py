@@ -1,7 +1,6 @@
 import numpy as np
 import streamlit as st
 import pickle
-from GDA import GDA
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
 
