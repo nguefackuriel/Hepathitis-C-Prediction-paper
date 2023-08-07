@@ -1,3 +1,4 @@
 lightgbm
 xgboost
 scikit-learn
+gspread_pandas
