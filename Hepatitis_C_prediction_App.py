@@ -66,15 +66,15 @@ def prediction_model(input_data):
     prediction = model_load.predict(input_data_reshaped)
 
     if prediction[0] == 0:
-        return "The patient is a 0=Blood Donor"
+        return "0=Blood Donor", "The patient is a 0=Blood Donor"
     elif prediction[0] == 1:
-        return 'The patient is a 0s=Suspect Blood Donor'
+        return "0s=Suspect Blood Donor" ,"The patient is a 0s=Suspect Blood Donor"
     elif prediction[0] == 2:
-        return 'The patient has 1=Hepatitis'
+        return "1=Hepatitis", "The patient has 1=Hepatitis"
     elif prediction[0] == 3:
-        return 'The patient has 2=Fibrosis'
+        return "2=Fibrosis" ,"The patient has 2=Fibrosis"
     elif prediction[0] == 4:
-        return 'The patient has 3=Cirrhosis'
+        return "3=Cirrhosis" ,"The patient has 3=Cirrhosis"
 
 
 def main():
@@ -136,7 +136,8 @@ def main():
     result = ''
 
     if st.button('Hepatitis C test result'):
-        result = prediction_model(df_)
+        label, result = prediction_model(df_)
+        new_df['target'] = label 
         update_the_spreadsheet('Sheet1', new_df)
 
     # Display the result
