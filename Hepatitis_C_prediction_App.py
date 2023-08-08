@@ -31,7 +31,7 @@ sh = client.open(spreadsheet_name)
 worksheet_list = sh.worksheets()
 
 #st.write(spread.url)
-@st.cache_data(ttl=600)
+#@st.cache_data(ttl=600)
 
 def load_the_spreadsheet(spreadsheet_name):
     worksheet = sh.worksheet(spreadsheet_name)
