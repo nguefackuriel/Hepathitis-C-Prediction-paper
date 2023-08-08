@@ -137,7 +137,7 @@ def main():
 
     if st.button('Hepatitis C test result'):
         label, result = prediction_model(df_)
-        new_df['target'] = label 
+        new_df["target"] = label
         update_the_spreadsheet('Sheet1', new_df)
 
     # Display the result
