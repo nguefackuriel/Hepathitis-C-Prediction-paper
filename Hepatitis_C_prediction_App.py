@@ -126,8 +126,9 @@ def main():
     df_s = pd.DataFrame(df_, columns=col_names)
 
     opt_df = pd.DataFrame(data)
+    opt_df['target'] = " "
     df = load_the_spreadsheet('Sheet1')
-    new_df = pd.concat([df, opt_df], ignore_index=True)
+    
  
     
 
@@ -137,7 +138,8 @@ def main():
 
     if st.button('Hepatitis C test result'):
         label, result = prediction_model(df_)
-        new_df["target"] = label
+        opt_df.iloc[:,-1] = label
+        new_df = pd.concat([df, opt_df], ignore_index=True)
         update_the_spreadsheet('Sheet1', new_df)
 
     # Display the result
