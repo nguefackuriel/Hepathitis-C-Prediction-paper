@@ -30,6 +30,15 @@ spread = Spread(spreadsheet_name, client = client)
 sh = client.open(spreadsheet_name)
 worksheet_list = sh.worksheets()
 
+st.markdown("""
+<style>
+.css-q16mip.e3g6aar0
+{
+  visibility:hidden;
+}
+</style>
+""", unsafe-allow-html=True)
+
 #st.write(spread.url)
 #@st.cache_data(ttl=600)
 
