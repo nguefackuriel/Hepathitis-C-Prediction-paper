@@ -37,7 +37,7 @@ st.markdown("""
   visibility:hidden;
 }
 </style>
-""", unsafe-allow-html=True)
+""", unsafe_allow_html=True)
 
 #st.write(spread.url)
 #@st.cache_data(ttl=600)
