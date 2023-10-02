@@ -6,4 +6,5 @@ The project has been done in collaboration with [Pauline Ornela Megne](https://g
 
 The app can be tested using this [link](https://nguefackuriel-hepathitis-c-pr-hepatitis-c-prediction-app-xdxi9n.streamlit.app/)
 
-We are currently working on the paper which will be released soon.
+The paper related to this work has been accepted at the PanAfricaCon AI(PanAfrican Artificial Intelligence Conference) 2023 which will be held from October 4 to October 5, 2023 in Ethiopia. After the conference, the paper will be published to the Springer Series.  
+
