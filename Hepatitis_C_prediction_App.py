@@ -53,6 +53,18 @@ def update_the_spreadsheet(spreadsheet_name, dataframe):
     spread.df_to_sheet(dataframe, sheet = spreadsheet_name, index = False)
     st.sidebar.info('Updated to Googlesheet')
 
+def change_label_style(label, font_size='20px', font_color='black', font_family='sans-serif'):
+    html = f"""
+    <script>
+        var elems = window.parent.document.querySelectorAll('p');
+        var elem = Array.from(elems).find(x => x.innerText == '{label}');
+        elem.style.fontSize = '{font_size}';
+        elem.style.color = '{font_color}';
+        elem.style.fontFamily = '{font_family}';
+    </script>
+    """
+    st.components.v1.html(html)
+
 
 
 
@@ -91,9 +103,12 @@ def main():
     # Give a title to the App
     st.title('Hepatitis C prediction App')
 
-
+    # label = "My text here"
+    #      st.text_input(label)
+    #      change_label_style(label, '20px')     
     # Getting the Input from the user
     Age = st.text_input('Age of the patient(in years)')
+    change_label_style('Age of the patient(in years)', '20px') 
     Sex = st.text_input('Sex of the patient( either f(for female)/m(for male))')
     ALB = st.text_input('ALB(Albumin) value')
     ALP = st.text_input('ALP(Alkaline Phosphatase) value')
