@@ -109,7 +109,7 @@ def main():
     # Getting the Input from the user
     Age = st.text_input('Age of the patient(in years)')
     change_label_style('Age of the patient(in years)', '20px') 
-    Sex = st.text_input('Sex of the patient( either f(for female)/m(for male))')
+    Sex = st.text_input(r"$\textsf{\Large Sex of the patient( either f(for female)/m(for male))}$" )
     ALB = st.text_input('ALB(Albumin) value')
     ALP = st.text_input('ALP(Alkaline Phosphatase) value')
     ALT = st.text_input('ALT(ALamine aminotransferase) value')
